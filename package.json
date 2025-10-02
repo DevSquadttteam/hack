@@ -12,7 +12,10 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "@tailwindcss/vite": "^4.1.13",
+    "axios": "^1.12.2",
+    "axois": "^0.0.1-security",
     "localforage": "^1.10.0",
+    "lucide-react": "^0.544.0",
     "match-sorter": "^8.1.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",

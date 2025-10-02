@@ -1,13 +1,17 @@
-import { Navigate } from 'react-router-dom';
+// src/components/PrivateRoute.jsx
+import { Navigate, useLocation } from 'react-router-dom';
 
-// Пример проверки авторизации (замените на вашу логику)
-const isAuthenticated = () => {
-  // Проверяем, есть ли токен в localStorage (или используйте ваш метод)
-  return !!localStorage.getItem('authToken');
-};
+const isAuthenticated = () => !!localStorage.getItem('authToken');
 
 const PrivateRoute = ({ children }) => {
-  return isAuthenticated() ? children : <Navigate to="/login" replace />;
+  const location = useLocation();
+
+  if (!isAuthenticated()) {
+    // Если пользователь не авторизован, редирект на логин
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
 };
 
 export default PrivateRoute;
